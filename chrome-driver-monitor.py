@@ -31,5 +31,5 @@ if r.text != previous:
     api.update_status(status ="Chrome Driver version changed from " + previous + " to " + r.text + " at https://chromedriver.chromium.org/")
 
 with open('/tmp/timestamp.txt', 'a') as file:
-    file.write(str(datetime.datetime.now()))
+    file.write(str(datetime.datetime.now()) + "\n")
     
