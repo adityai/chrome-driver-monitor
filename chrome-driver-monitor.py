@@ -1,6 +1,8 @@
 import requests
 import tweepy
 import os
+import datetime
+
 open('current.txt', 'a').close()
 
 r = requests.get('https://chromedriver.storage.googleapis.com/LATEST_RELEASE')
@@ -27,3 +29,7 @@ if r.text != previous:
 
     # update the status 
     api.update_status(status ="Chrome Driver version changed from " + previous + " to " + r.text + " at https://chromedriver.chromium.org/")
+
+with open('/tmp/timestamp.txt', 'a') as file:
+    file.write(str(datetime.datetime.now()))
+    
