@@ -1,6 +1,7 @@
 import requests
 import tweepy
 import os
+open('current.txt', 'a').close()
 
 r = requests.get('https://chromedriver.storage.googleapis.com/LATEST_RELEASE')
 f = open("current.txt", "r")
@@ -25,4 +26,4 @@ if r.text != previous:
     api = tweepy.API(auth) 
 
     # update the status 
-    api.update_status(status ="Driver version changed from " + previous + " to " + r.text + " at https://chromedriver.chromium.org/")
+    api.update_status(status ="Chrome Driver version changed from " + previous + " to " + r.text + " at https://chromedriver.chromium.org/")
